@@ -1,0 +1,57 @@
+name: CI Fuzz
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  FUZZING_SERVER_ADDRESS: external.code-intelligence.com:6773
+  WEB_APP_ADDRESS:  https://external.code-intelligence.com
+  PROJECT_ID: projects/65217285_github_simple-project-f8ea9516
+
+
+jobs:
+  fuzz_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - id: start-fuzzing
+        name: Build and Instrument
+        uses: CodeIntelligenceTesting/github-actions/start-fuzzing@v3
+        with:
+          ci_fuzz_api_token: ${{ secrets.CI_FUZZ_API_TOKEN }}
+          project: ${{ env.PROJECT_ID }}
+          git_reference: ${{ github.sha }}
+          fuzzing_server_address: ${{ env.FUZZING_SERVER_ADDRESS }}
+      - id: monitor-fuzzing
+        name: Fuzzing
+        uses: CodeIntelligenceTesting/github-actions/monitor-fuzzing@v3
+        with:
+          ci_fuzz_api_token: ${{ secrets.CI_FUZZ_API_TOKEN }}
+          test_collection_run: ${{ steps.start-fuzzing.outputs.test_collection_run }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pull_request_number: ${{ github.event.pull_request.number }}
+          owner: ${{ github.event.repository.owner.login }}
+          repository: ${{ github.event.repository.name }}
+          fuzzing_server_address: ${{ env.FUZZING_SERVER_ADDRESS }}
+          dashboard_address: ${{ env.WEB_APP_ADDRESS }}
+      - id: export-results
+        name: Export Test Results
+        uses: CodeIntelligenceTesting/github-actions/export-results@0feec045c05def1d82b40ba3a317c807fded7b5b
+        if: ${{ github.event_name == 'pull_request' && (success() || failure()) }}
+        with:
+          test_collection_run: ${{ steps.start-fuzzing.outputs.test_collection_run }}
+          ci_fuzz_api_token: ${{ secrets.CI_FUZZ_API_TOKEN }}
+          fuzzing_server_address: ${{ env.FUZZING_SERVER_ADDRESS }}
+          project: ${{env.PROJECT_ID}}
+          pull_request_number: ${{ github.event.pull_request.number }}
+      - id: upload-artifact
+        uses: actions/upload-artifact@v2
+        if: ${{ (success() || failure()) }}
+        with:
+          name: ci_fuzz_results
+          path: | 
+            findings.json
+            coverage.json
+          
