@@ -1,0 +1,19 @@
+{
+  "name": "afl-42251e90",
+  "displayName": "afl",
+  "maxRunTime": "10s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy9kb19zdHVmZl9mdXp6ZXJfYWZsLmM="
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "AFL",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "environment": [
+        "AFL_NO_UI=1",
+        "AFL_NO_ARITH=1"
+      ]
+    }
+  ]
+}

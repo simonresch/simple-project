@@ -1,0 +1,20 @@
+{
+  "name": "afl_compilation_db_generation-c4d9075e",
+  "displayName": "afl_compilation_db_generation",
+  "maxRunTime": "10s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy9kb19zdHVmZl9mdXp6ZXJfYWZsLmM=",
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy9kb19ncmFtbWFyc19mdXp6ZXIuY3Bw"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "AFL",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "environment": [
+        "AFL_NO_UI=1",
+        "AFL_NO_ARITH=1"
+      ]
+    }
+  ]
+}

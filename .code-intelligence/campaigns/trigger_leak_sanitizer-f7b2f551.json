@@ -1,0 +1,15 @@
+{
+  "name": "trigger_leak_sanitizer-f7b2f551",
+  "displayName": "trigger_leak_sanitizer",
+  "maxRunTime": "1800s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy90cmlnZ2VyX2xlYWtfc2FuaXRpemVyLmNwcA=="
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "do_socket_fuzzer-29d09232",
+  "displayName": "do_socket_fuzzer",
+  "maxRunTime": "1200s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy9kb19zb2NrZXRfZnV6emVyLmNwcA=="
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    }
+  ]
+}

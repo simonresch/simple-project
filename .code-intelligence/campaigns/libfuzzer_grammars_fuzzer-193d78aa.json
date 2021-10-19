@@ -1,0 +1,15 @@
+{
+  "name": "libfuzzer_grammars_fuzzer-193d78aa",
+  "displayName": "libfuzzer_grammars_fuzzer",
+  "maxRunTime": "10s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy9kb19ncmFtbWFyc19mdXp6ZXIuY3Bw"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    }
+  ]
+}

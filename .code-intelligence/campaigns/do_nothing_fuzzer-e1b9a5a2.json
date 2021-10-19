@@ -1,0 +1,20 @@
+{
+  "name": "do_nothing_fuzzer-e1b9a5a2",
+  "displayName": "do_nothing_fuzzer",
+  "maxRunTime": "1200s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy9kb19ub3RoaW5nX2Z1enplci5jcHA="
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    },
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "MEMORY",
+      "numberOfJobs": 1
+    }
+  ]
+}

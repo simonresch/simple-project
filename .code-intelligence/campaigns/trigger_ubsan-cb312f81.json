@@ -1,0 +1,15 @@
+{
+  "name": "trigger_ubsan-cb312f81",
+  "displayName": "trigger_ubsan",
+  "maxRunTime": "1800s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy90cmlnZ2VyX3Vic2FuLmNwcA=="
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    }
+  ]
+}

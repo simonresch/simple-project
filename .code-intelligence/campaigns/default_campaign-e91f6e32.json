@@ -1,0 +1,24 @@
+{
+  "name": "default_campaign-e91f6e32",
+  "displayName": "default_campaign",
+  "maxRunTime": "1800s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy9kb19zdHVmZl9mdXp6ZXIuY3Bw"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 3
+    },
+    {
+      "engine": "AFL",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 2,
+      "environment": [
+        "AFL_NO_UI=1",
+        "AFL_NO_ARITH=1"
+      ]
+    }
+  ]
+}

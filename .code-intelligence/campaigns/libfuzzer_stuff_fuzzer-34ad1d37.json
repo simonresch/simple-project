@@ -1,0 +1,18 @@
+{
+  "name": "libfuzzer_stuff_fuzzer-34ad1d37",
+  "displayName": "libfuzzer_stuff_fuzzer",
+  "maxRunTime": "10s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy9kb19zdHVmZl9mdXp6ZXIuY3Bw"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "LIBFUZZER",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1,
+      "engineArguments": [
+        "-use_value_profile=1"
+      ]
+    }
+  ]
+}

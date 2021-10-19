@@ -1,0 +1,15 @@
+{
+  "name": "afl_llvm_mode-094fbdf9",
+  "displayName": "afl_llvm_mode",
+  "maxRunTime": "10s",
+  "fuzzTargets": [
+    "LmNvZGUtaW50ZWxsaWdlbmNlL2Z1enpfdGFyZ2V0cy9kb19zdHVmZl9mdXp6ZXIuY3Bw"
+  ],
+  "fuzzerRunConfigurations": [
+    {
+      "engine": "AFL_LLVM_MODE",
+      "sanitizer": "ADDRESS",
+      "numberOfJobs": 1
+    }
+  ]
+}
